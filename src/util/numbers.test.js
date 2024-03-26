@@ -1,5 +1,5 @@
 import { it, expect, describe } from 'vitest'
-import { transformToNumber } from './numbers'
+import { transformToNumber, cleanNumbers } from './numbers'
 
 describe('numbers', () => {
   it('should transform numeric strings to numbers', () => {
@@ -25,4 +25,14 @@ describe('numbers', () => {
     // Assert
     expect(result).toBeNaN();
   });
+})
+
+describe('numbers cleanNumbers', () => {
+  it('should return an array of number values if an array of string number values is provided', () => {
+    const numberValues = ['1', '2']
+
+    const cleanedNumbers = cleanNumbers(numberValues)
+
+    expect(cleanedNumbers[0]).toBeTypeOf('number')
+  })
 })
